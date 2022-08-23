@@ -4,12 +4,12 @@ const logger = require('../../services/logger.service')
 const {ObjectId} = require('mongodb')
 
 module.exports = {
-    query,
-    getById,
-    getByUsername,
-    remove,
-    update,
-    add
+  query,
+  getById,
+  getByEmail,
+  remove,
+  update,
+  add,
 }
 
 async function query(filterBy = {}) {
@@ -42,7 +42,7 @@ async function getById(userId) {
         throw err
     }
 }
-async function getByUsername(username) {
+async function getByEmail(username) {
     try {
         const collection = await dbService.getCollection('user')
         const user = await collection.findOne({ username })
@@ -84,11 +84,9 @@ async function add(user) {
     try {
         // peek only updatable fields!
         const userToAdd = {
-            username: user.username,
+            email: user.email,
             password: user.password,
             fullname: user.fullname,
-            imgUrl: user.imgUrl,
-            score: 100
         }
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
