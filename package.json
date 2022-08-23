@@ -5,7 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "set NODE_ENV=production&&node server.js",
-        "server:dev": "set NODE_ENV=development&&nodemon server.js",
+        "server:dev": "set NODE_ENV=development&&nodemon server.js"
     },
     "author": "Uri Baynesay",
     "license": "ISC",
@@ -15,7 +15,7 @@
         "cors": "^2.8.5",
         "cryptr": "^6.0.3",
         "express": "^4.17.1",
-        "mongodb": "^3.2.7",
+        "mongodb": "^3.2.7"
     },
     "devDependencies": {
         "nodemon": "1.18.10"
