@@ -11,7 +11,7 @@ async function login(req, res) {
     res.json(user)
   } catch (err) {
     logger.error("Failed to Login " + err)
-    res.status(401).send({ err: "Failed to Login" })
+    res.status(401).send("Failed to Login")
   }
 }
 
@@ -30,7 +30,7 @@ async function signup(req, res) {
     res.json(user)
   } catch (err) {
     logger.error("Failed to signup " + err)
-    res.status(500).send({ err: "Failed to signup" })
+    res.status(500).send("Failed to signup")
   }
 }
 
@@ -39,7 +39,7 @@ async function logout(req, res) {
     res.clearCookie("loginToken")
     res.send({ msg: "Logged out successfully" })
   } catch (err) {
-    res.status(500).send({ err: "Failed to logout" })
+    res.status(500).send("Failed to logout")
   }
 }
 
